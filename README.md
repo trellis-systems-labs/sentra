@@ -1,10 +1,10 @@
 # Sentra
 
-![Status](https://img.shields.io/badge/status-active--development-blue)
-![Visibility](https://img.shields.io/badge/access-limited-lightgrey)
-![Layer](https://img.shields.io/badge/layer-control--plane-purple)
-
 > A system that determines whether infrastructure is truly stable — not just operational.
+
+![Status](https://img.shields.io/badge/status-active--development-blue)
+![Access](https://img.shields.io/badge/access-limited-lightgrey)
+![Layer](https://img.shields.io/badge/layer-control--plane-purple)
 
 <p align="left">
   <strong>Status:</strong> Active Development<br/>
@@ -280,11 +280,12 @@ Systems fail not because they lack data,
 but because they act on it incorrectly.
 
 Sentra introduces:
-- confidence-aware evaluation
-- time-based validation of recovery
-- decision control under uncertainty
 
-This is a shift from reporting conditions to governing operational trust.
+- confidence-aware evaluation  
+- time-based validation of recovery  
+- decision control under uncertainty  
+
+This represents a shift from reporting conditions to governing operational trust.
 
 ---
 
@@ -319,12 +320,10 @@ If you believe you have identified a security concern, please contact the mainta
 
 Contributions are not currently being accepted.
 
-This repository is intended to provide a high-level view of the system.
+This repository provides a high-level view of the system.
 
 ---
 
 ## Note
 
-This repository provides a high-level view of the system.
-
-Implementation details and internal architecture are not publicly exposed.
+Implementation details and internal architecture are not publicly exposed
