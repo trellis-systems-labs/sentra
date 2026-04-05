@@ -143,4 +143,105 @@ flowchart LR
 ```
 Sentra answers a question most systems leave unresolved:
 
-> **What should happen next, given the current level of confidence?
+> **What should happen next, given the current level of confidence?**
+
+---
+
+## What This Enables
+- Preventing actions during unstable recovery windows
+- Detecting degraded reality behind healthy-looking systems
+- Coordinating behavior across inconsistent signals
+- Introducing time-based trust restoration
+- Moving from reactive monitoring to controlled decision-making
+
+---
+
+## Use Cases
+
+### Deployment Safety
+
+A service appears healthy after restart.
+- Traditional systems: allow deploy
+- Sentra: identifies recovery phase → **blocks deployment until stability is proven**
+
+---
+
+### Hidden Network Degradation
+
+Services report healthy, but network conditions degrade.
+- Traditional systems: remain green
+- Sentra: detects instability → **maintains DEGRADED posture**
+
+---
+
+### Flapping Systems
+
+A service repeatedly fails and recovers.
+- Traditional systems: oscillate between states
+- Sentra: maintains degraded posture → **prevents premature trust**
+
+---
+
+### Node Loss and Recovery
+
+A node disappears and later returns.
+- Traditional systems: mark healthy when reachable
+- Sentra: enforces validation window → **delays return to STABLE**
+
+---
+
+### Action Governance
+
+A downstream action is requested.
+- Sentra evaluates system posture
+- If not STABLE → **action is blocked or delayed**
+
+---
+
+### Positioning
+
+Sentra does not replace existing tools.
+- Observability provides visibility
+- Orchestration provides execution
+- **Sentra provides judgment**
+
+---
+
+## Why It Matters
+
+Systems fail not because they lack data,
+but because they act on it incorrectly.
+
+Sentra introduces:
+- confidence-aware evaluation
+- time-based validation of recovery
+- decision control under uncertainty
+
+This is a shift from reporting conditions to governing operational trust.
+
+---
+
+## Status
+
+Active development.
+
+Current focus:
+- state modeling
+- signal evaluation
+- recovery validation
+- action gating
+
+---
+
+## About Trellis Systems
+
+Sentra is being developed within Trellis Systems,
+a platform for intelligent system orchestration and decision-making.
+
+---
+
+## Note
+
+This repository provides a high-level view of the system.
+
+Implementation details and internal architecture are not publicly exposed.
