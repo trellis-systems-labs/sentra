@@ -287,6 +287,8 @@ Sentra introduces a missing layer in modern infrastructure:
 
 **decision-making under uncertainty**
 
+Sentra changes when systems are allowed to act.
+
 ---
 
 ## Non-Goals
@@ -312,6 +314,8 @@ Sentra introduces:
 - confidence-aware evaluation
 - time-based validation of recovery
 - decision control under uncertainty
+
+Sentra enforces a simple rule: systems must prove stability before they are trusted.
 
 This represents a shift from reporting conditions to governing operational trust.
 
