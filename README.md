@@ -1,6 +1,12 @@
 # Sentra
 > A system that determines whether infrastructure is truly stable — not just operational.
 
+<p align="left">
+  <strong>Status:</strong> Active Development<br/>
+  <strong>Layer:</strong> Control Plane / Decision System<br/>
+  <strong>Part of:</strong> Trellis Systems
+</p>
+
 Sentra is a control layer developed within Trellis Systems.
 
 It determines system posture and governs when action is safe.
