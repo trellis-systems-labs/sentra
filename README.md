@@ -1,4 +1,5 @@
 # Sentra
+> A system that determines whether infrastructure is truly stable — not just operational.
 
 Sentra is a control layer developed within Trellis Systems.
 
