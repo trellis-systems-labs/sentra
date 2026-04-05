@@ -323,14 +323,6 @@ This repository is intended to provide a high-level view of the system.
 
 ---
 
-## Issue
-
-Please describe your question or observation.
-
-Note: This repository provides a high-level view of the system and may not expose implementation details.
-
----
-
 ## Note
 
 This repository provides a high-level view of the system.
