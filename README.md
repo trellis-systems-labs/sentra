@@ -1,6 +1,7 @@
 # Sentra
 
-> A system that determines whether infrastructure is truly stable — not just operational.
+> A system that determines whether infrastructure is truly stable — not just operational.  
+> Sentra prevents systems from acting on false recovery.
 
 ![Status](https://img.shields.io/badge/status-active--development-blue)
 ![Access](https://img.shields.io/badge/access-limited-lightgrey)
@@ -18,8 +19,50 @@ It determines system posture and governs when action is safe.
 
 ---
 
+## One-Minute Understanding
+
+Most systems answer:
+> "Is it up?"
+
+Sentra answers:
+> **"Is it safe to act?"**
+
+---
+
+A system can be:
+
+- **STABLE** → safe to act  
+- **UNSTABLE** → actively failing  
+- **DEGRADED** → recovered, but not yet trustworthy  
+
+---
+
+The difference:
+
+- Traditional systems allow action as soon as something is “up”  
+- Sentra requires **proof of stability over time**
+
+---
+
+Example:
+
+A service restarts and reports healthy.
+
+- Traditional → deploy allowed  
+- Sentra → **deploy blocked until stability is proven**
+
+---
+
+Sentra introduces:
+- state-based reasoning  
+- time-aware recovery validation  
+- action gating under uncertainty  
+
+---
+
 ## Contents
 
+- [One-Minute Understanding](#one-minute-understanding)
 - [The Problem](#the-problem)
 - [The Shift](#the-shift)
 - [Core Concepts](#core-concepts)
@@ -27,8 +70,6 @@ It determines system posture and governs when action is safe.
 - [State Model](#state-model)
 - [Decision Model](#decision-model)
 - [Use Cases](#use-cases)
-- [Positioning](#positioning)
-- [Status](#status)
 
 ---
 
@@ -62,7 +103,7 @@ Instead of asking whether a component is merely available, Sentra determines whe
 - operating under unresolved uncertainty  
 - safe to act on  
 
-This transforms infrastructure from passive reporting to active operational judgment.
+This shifts infrastructure from passive reporting to active operational judgment.
 
 ---
 
@@ -101,7 +142,7 @@ Sentra evaluates posture across multiple signal domains:
 - network  
 - physical  
 
-This allows decisions to reflect combined system reality rather than isolated checks.
+This allows decisions to reflect system reality rather than isolated signals.
 
 ---
 
@@ -124,29 +165,20 @@ flowchart TD
 
 ## Design Principles
 
-- **Separation of control and execution**  
-  Sentra operates independently from the systems it evaluates.
-
-- **Explicit state modeling**  
-  System posture is derived, not inferred from individual signals.
-
-- **Time-aware validation**  
-  Recovery must be sustained over time before trust is restored.
-
-- **Multi-domain signal evaluation**  
-  No single signal is considered sufficient for determining system truth.
-
-- **Conservative decision-making**  
-  When uncertainty exists, Sentra favors delaying action over acting prematurely.
+- **Separation of control and execution**
+- **Explicit state modeling**
+- **Time-aware validation**
+- **Multi-domain signal evaluation**
+- **Conservative decision-making under uncertainty**
 
 ---
 
 ## System Characteristics
 
-- Deterministic state transitions  
-- Observable decision reasoning  
-- Controlled action boundaries  
-- Independence from execution environments  
+- Deterministic state transitions
+- Observable decision reasoning
+- Controlled action boundaries
+- Independence from execution environments
 
 ---
 
@@ -187,6 +219,7 @@ During **DEGRADED:**
 ---
 
 ## Decision Model
+
 ```mermaid
 flowchart LR
     A[Incoming Signals] --> B[Normalize Evidence]
@@ -195,6 +228,7 @@ flowchart LR
     D -- Yes --> E[Allow Action]
     D -- No --> F[Block or Delay Action]
 ```
+
 Sentra answers a question most systems leave unresolved:
 
 > **What should happen next, given the current level of confidence?**
@@ -202,6 +236,7 @@ Sentra answers a question most systems leave unresolved:
 ---
 
 ## What This Enables
+	
 - Preventing actions during unstable recovery windows
 - Detecting degraded reality behind healthy-looking systems
 - Coordinating behavior across inconsistent signals
@@ -215,49 +250,53 @@ Sentra answers a question most systems leave unresolved:
 ### Deployment Safety
 
 A service appears healthy after restart.
-- Traditional systems: allow deploy
-- Sentra: identifies recovery phase → **blocks deployment until stability is proven**
+
+- Traditional → deploy allowed
+- Sentra → **blocked until stability is proven**
 
 ---
 
 ### Hidden Network Degradation
 
-Services report healthy, but network conditions degrade.
-- Traditional systems: remain green
-- Sentra: detects instability → **maintains DEGRADED posture**
+Services report healthy, but network conditions
+degrade.
+
+- Traditional → remain green
+- Sentra → **maintains DEGRADED posture**
 
 ---
 
 ### Flapping Systems
 
 A service repeatedly fails and recovers.
-- Traditional systems: oscillate between states
-- Sentra: maintains degraded posture → **prevents premature trust**
+
+- Traditional → oscillates
+- Sentra → **prevents premature trust**
 
 ---
 
 ### Node Loss and Recovery
 
 A node disappears and later returns.
-- Traditional systems: mark healthy when reachable
-- Sentra: enforces validation window → **delays return to STABLE**
+
+- Traditional → marked healthy
+- Sentra → **validation required before STABLE**
 
 ---
 
 ### Action Governance
 
 A downstream action is requested.
-- Sentra evaluates system posture
+	
 - If not STABLE → **action is blocked or delayed**
 
 ---
 
-### Positioning
+## Positioning
 
-Sentra does not replace existing tools.
-- Observability provides visibility
-- Orchestration provides execution
-- **Sentra provides judgment**
+Sentra introduces a missing layer in modern infrastructure:
+
+**decision-making under uncertainty**
 
 ---
 
@@ -265,12 +304,12 @@ Sentra does not replace existing tools.
 
 Sentra is not intended to:
 
-- replace observability platforms  
-- act as a monitoring or alerting system  
-- execute arbitrary automation without control logic  
-- infer system state from a single signal source  
+- replace observability platform
+- act as a monitoring or alerting system
+- execute arbitrary automation without control logic
+- infer system state from a single signal source
 
-Sentra is focused on **decision-making under uncertainty**, not signal collection.
+Sentra is focused on decision-making under uncertainty, not signal collection.
 
 ---
 
@@ -281,11 +320,13 @@ but because they act on it incorrectly.
 
 Sentra introduces:
 
-- confidence-aware evaluation  
-- time-based validation of recovery  
-- decision control under uncertainty  
+- confidence-aware evaluation
+- time-based validation of recovery
+- decision control under uncertainty
 
 This represents a shift from reporting conditions to governing operational trust.
+
+Sentra ensures systems act on truth, not appearance.
 
 ---
 
@@ -294,6 +335,7 @@ This represents a shift from reporting conditions to governing operational trust
 Active development.
 
 Current focus:
+
 - state modeling
 - signal evaluation
 - recovery validation
@@ -326,4 +368,4 @@ This repository provides a high-level view of the system.
 
 ## Note
 
-Implementation details and internal architecture are not publicly exposed
+Implementation details and internal architecture are not publicly exposed.
