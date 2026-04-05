@@ -18,6 +18,20 @@ It determines system posture and governs when action is safe.
 
 ---
 
+## Contents
+
+- [The Problem](#the-problem)
+- [The Shift](#the-shift)
+- [Core Concepts](#core-concepts)
+- [Architecture](#conceptual-architecture)
+- [State Model](#state-model)
+- [Decision Model](#decision-model)
+- [Use Cases](#use-cases)
+- [Positioning](#positioning)
+- [Status](#status)
+
+---
+
 ## The Problem
 
 Modern systems are rich in signals but poor in judgment.
@@ -290,6 +304,30 @@ Current focus:
 
 Sentra is being developed within Trellis Systems,
 a platform for intelligent system orchestration and decision-making.
+
+---
+
+## Security
+
+This repository does not expose implementation details or production systems.
+
+If you believe you have identified a security concern, please contact the maintainers directly.
+
+---
+
+## Contributing
+
+Contributions are not currently being accepted.
+
+This repository is intended to provide a high-level view of the system.
+
+---
+
+## Issue
+
+Please describe your question or observation.
+
+Note: This repository provides a high-level view of the system and may not expose implementation details.
 
 ---
 
