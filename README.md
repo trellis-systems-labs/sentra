@@ -1,4 +1,9 @@
 # Sentra
+
+![Status](https://img.shields.io/badge/status-active--development-blue)
+![Visibility](https://img.shields.io/badge/access-limited-lightgrey)
+![Layer](https://img.shields.io/badge/layer-control--plane-purple)
+
 > A system that determines whether infrastructure is truly stable — not just operational.
 
 <p align="left">
@@ -100,6 +105,34 @@ flowchart TD
     D --> G[Safe-to-Act Gating]
     G --> O[Allowed or Blocked Actions]
 ```
+
+---
+
+## Design Principles
+
+- **Separation of control and execution**  
+  Sentra operates independently from the systems it evaluates.
+
+- **Explicit state modeling**  
+  System posture is derived, not inferred from individual signals.
+
+- **Time-aware validation**  
+  Recovery must be sustained over time before trust is restored.
+
+- **Multi-domain signal evaluation**  
+  No single signal is considered sufficient for determining system truth.
+
+- **Conservative decision-making**  
+  When uncertainty exists, Sentra favors delaying action over acting prematurely.
+
+---
+
+## System Characteristics
+
+- Deterministic state transitions  
+- Observable decision reasoning  
+- Controlled action boundaries  
+- Independence from execution environments  
 
 ---
 
@@ -211,6 +244,19 @@ Sentra does not replace existing tools.
 - Observability provides visibility
 - Orchestration provides execution
 - **Sentra provides judgment**
+
+---
+
+## Non-Goals
+
+Sentra is not intended to:
+
+- replace observability platforms  
+- act as a monitoring or alerting system  
+- execute arbitrary automation without control logic  
+- infer system state from a single signal source  
+
+Sentra is focused on **decision-making under uncertainty**, not signal collection.
 
 ---
 
