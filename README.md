@@ -7,6 +7,8 @@
 ![Access](https://img.shields.io/badge/access-limited-lightgrey)
 ![Layer](https://img.shields.io/badge/layer-control--plane-purple)
 
+<br/>
+
 <p align="left">
   <strong>Status:</strong> Active Development<br/>
   <strong>Layer:</strong> Control Plane / Decision System<br/>
@@ -27,22 +29,16 @@ Most systems answer:
 Sentra answers:
 > **"Is it safe to act?"**
 
----
-
 A system can be:
 
 - **STABLE** → safe to act  
 - **UNSTABLE** → actively failing  
 - **DEGRADED** → recovered, but not yet trustworthy  
 
----
-
 The difference:
 
 - Traditional systems allow action as soon as something is “up”  
 - Sentra requires **proof of stability over time**
-
----
 
 Example:
 
@@ -50,13 +46,6 @@ A service restarts and reports healthy.
 
 - Traditional → deploy allowed  
 - Sentra → **deploy blocked until stability is proven**
-
----
-
-Sentra introduces:
-- state-based reasoning  
-- time-aware recovery validation  
-- action gating under uncertainty  
 
 ---
 
